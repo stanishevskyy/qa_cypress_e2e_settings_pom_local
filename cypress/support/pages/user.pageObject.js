@@ -4,7 +4,7 @@ class UserPage extends PageObject {
   url = '/';
 
   get subscribeBtn() {
-    return cy.getByDataCy('subcribe-btn');
+    return cy.getByDataCy('subscribe-btn');
   }
 
   clickSubscribeBtn() {

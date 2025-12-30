@@ -30,9 +30,4 @@ describe('Sign Up page', () => {
 
     cy.contains('This email is taken.').should('exist');
   });
-
-  it('should show error for invalid email format', () => {
-    const invalidUser = { ...user, email: 'invalid-email' };
-    signUpPage.fillSignUpForm(invalidUser);
-  });
 });

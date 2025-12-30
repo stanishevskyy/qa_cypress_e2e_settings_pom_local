@@ -7,6 +7,14 @@ class SettingsPageObject extends PageObject {
     return cy.getByDataCy('settings');
   }
 
+  get userProfileName() {
+    return cy.getByDataCy('user-profile-name');
+  }
+
+  get userProfileBio() {
+    return cy.getByDataCy('user-profile-bio');
+  }
+
   get usernameInput() {
     return cy.getByDataCy('user-username');
   }

@@ -10,10 +10,6 @@ describe('Settings page', () => {
   let user;
    let randomNumber;
 
-  before(() => {
-
-  });
-
   beforeEach(() => {
     cy.task('db:clear');
     cy.task('generateUser').then((generatedUser) => {
@@ -34,7 +30,7 @@ describe('Settings page', () => {
 
   settingsPage.updateField(settingsPage.usernameInput, newUsername);
 
-  settingsPage.usernameInput.should('have.value', newUsername);
+  settingsPage.userProfileName.should('have.text', newUsername);
   });
 
   it('should provide an ability to update bio', () => {
@@ -43,6 +39,8 @@ describe('Settings page', () => {
   const newUserBio = faker.lorem.words();
 
   settingsPage.updateField(settingsPage.userBioInput, newUserBio);
+
+  settingsPage.userProfileBio.should('have.text', newUserBio);
   });
 
   it('should provide an ability to update an email', () => {
@@ -51,6 +49,8 @@ describe('Settings page', () => {
   const newUserEmail = 'test'+`${randomNumber}`+'@mail.com';
 
   settingsPage.updateField(settingsPage.emailInput, newUserEmail);
+
+  settingsPage.emailInput.should('have.value', newUserEmail);
   });
 
   it('should provide an ability to update password', () => {
