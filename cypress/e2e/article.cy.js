@@ -56,7 +56,7 @@ describe('Article', () => {
 
     cy.url().should('include', '/article/');
 
-    articlePage.articleEditBtn.click({ multiple: true });
+    articlePage.articleEditBtn.eq(0).click();
 
     const newArticle = {
       title: faker.lorem.word(),
