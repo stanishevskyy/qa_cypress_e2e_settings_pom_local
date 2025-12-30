@@ -39,7 +39,7 @@ const Navbar = () => {
               </NavLink>
             </NavbarItem>
             <NavbarItem>
-              <NavLink href={routes.userEdit()}>
+              <NavLink href={routes.userEdit()} dataCy="settings">
                 <i className="ion-gear-a" />
                 &nbsp;Settings
               </NavLink>
@@ -60,7 +60,7 @@ const Navbar = () => {
               <NavLink href={routes.userLogin()}>Sign in</NavLink>
             </NavbarItem>
             <NavbarItem>
-              <NavLink href={routes.userNew()}>Sign up</NavLink>
+              <NavLink href={routes.userNew()} dataCy='sign-up'>Sign up</NavLink>
             </NavbarItem>
           </Maybe>
         </ul>
