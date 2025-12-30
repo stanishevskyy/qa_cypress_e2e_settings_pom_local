@@ -8,7 +8,7 @@ const settingsPage = new SettingsPageObject();
 
 describe('Settings page', () => {
   let user;
-   let randomNumber;
+  let randomNumber;
 
   beforeEach(() => {
     cy.task('db:clear');
@@ -50,6 +50,8 @@ describe('Settings page', () => {
 
   settingsPage.updateField(settingsPage.emailInput, newUserEmail);
 
+  settingsPage.visit('/settings');
+
   settingsPage.emailInput.should('have.value', newUserEmail);
   });
 
@@ -59,11 +61,23 @@ describe('Settings page', () => {
     const newUserPassword = user.password + `${randomNumber}`;
 
     settingsPage.updateField(settingsPage.passwordInput, newUserPassword);
+
+    settingsPage.openSettings();
+    settingsPage.logoutBtn.click();
+
+    settingsPage.signInBtn.click();
+    settingsPage.signInEmail.type(user.email);
+    settingsPage.signInPassword.type(newUserPassword);
+    settingsPage.signInSubmit.click();
+
+    cy.get('[data-cy="no-articles-message"]').should('be.visible');
   });
 
   it('should provide an ability to log out', () => {
     settingsPage.openSettings();
 
     settingsPage.logoutBtn.click();
+
+    cy.get('[data-cy="main-logo"]').should('be.visible');
   });
 });

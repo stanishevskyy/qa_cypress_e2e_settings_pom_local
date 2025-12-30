@@ -35,6 +35,10 @@ class ArticlePageObject extends PageObject {
     return cy.getByDataCy('delete-article-main');
   }
 
+  get articlesMessage() {
+    return cy.getByDataCy('no-articles-message');
+  }
+
   typeArticleTitle(articleTitle) {
     this.articleTitleField.type(articleTitle);
   }
@@ -48,7 +52,7 @@ class ArticlePageObject extends PageObject {
   }
 
   typeArticleTags(articleTags) {
-    this.articleTags.type(articleTags);
+    this.articleTags.type(`${articleTags}{enter}`);
   }
 
   typeField(field, text) {

@@ -7,6 +7,22 @@ class SettingsPageObject extends PageObject {
     return cy.getByDataCy('settings');
   }
 
+  get signInBtn() {
+    return cy.getByDataCy('sign-in-nav');
+  }
+
+  get signInEmail() {
+    return cy.getByDataCy('email-sign');
+  }
+
+  get signInSubmit() {
+    return cy.getByDataCy('sign-btn');
+  }
+
+  get signInPassword() {
+    return cy.getByDataCy('password-sign');
+  }
+
   get userProfileName() {
     return cy.getByDataCy('user-profile-name');
   }

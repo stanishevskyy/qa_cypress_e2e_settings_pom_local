@@ -35,7 +35,7 @@ describe('Article', () => {
       article.tag
     );
 
-    articlePage.articleBtnSubmit.click().click();
+    articlePage.articleBtnSubmit.should('be.visible').click();
 
     cy.url().should('include', '/article/');
   });
@@ -52,7 +52,7 @@ describe('Article', () => {
       article.tag
     );
 
-    articlePage.articleBtnSubmit.click().click();
+    articlePage.articleBtnSubmit.should('be.visible').click();
 
     cy.url().should('include', '/article/');
 
@@ -72,7 +72,7 @@ describe('Article', () => {
     );
     articlePage.typeField(articlePage.articleBodyField, newArticle.body);
 
-    articlePage.articleBtnSubmit.click().click();
+    articlePage.articleBtnSubmit.should('be.visible').click();
   });
 
   it('should be deleted using Delete button', () => {
@@ -91,5 +91,7 @@ describe('Article', () => {
     cy.url().should('include', '/article/');
 
     articlePage.deleteArticle();
+
+    articlePage.articlesMessage.should('have.text', `No articles are here... yet.`);
   });
 });
